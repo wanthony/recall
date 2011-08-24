@@ -3,7 +3,7 @@
 end
 
 class Application < Sinatra::Base
-  @couch_server = CouchRest.new(ENV['CLOUDANT_URL'])
+  @couch_server = CouchRest.new(ENV['CLOUDANT_URL'] || YAML::load_file('config/database.yml')['development'])
   @couch_server.database!('recall')
 
   get '/' do
