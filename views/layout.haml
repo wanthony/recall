@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    %title Recall | A Sinatra Project
+    %link{:rel => 'stylesheet', :href => 'css/bootstrap-1.1.0.css'}
+    %script{:src => 'js/index.js', :type => 'text/javascript'}
+  %body
+    .topbar
+      .fill
+        .container.fixed
+          %h3 
+            %a{:href => '/'} Recall
+          %ul
+            %li
+              %a{:href => '/'} Home
+            %li
+              %a{:href => '/tasks'} Tasks
+
+    .container
+      =yield

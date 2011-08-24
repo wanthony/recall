@@ -1,8 +1,16 @@
-require 'sinatra'
-require 'erb'
-require 'coffee'
-require 'less'
+%w[sinatra haml coffee-script less couchrest_model].each do |f|
+  require f
+end
 
-get '/' do
-  erb :index
+class Application < Sinatra::Base
+  @couch_server = CouchRest.new(ENV['CLOUDANT_URL'])
+  @couch_server.database!('recall')
+
+  get '/' do
+    haml :index
+  end
+
+  get '/tasks' do
+    haml :tasks
+  end
 end
