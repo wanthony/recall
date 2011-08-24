@@ -1,4 +1,5 @@
-%w[sinatra haml coffee-script less couchrest_model].each do |f|
+# Require all dependencies in 3 lines
+%w[sinatra haml coffee-script less couchrest_model yaml].each do |f|
   require f
 end
 
