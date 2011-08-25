@@ -12,7 +12,7 @@ class App < Sinatra::Base
     set :port, '4567'
     set :run, true
     set :server, %w[thin mongrel webrick]
-    set :conf, YAML.load_file(File.dirname(__FILE__) + '/config/database.yml')
+    set :conf, YAML.load_file(File.dirname(__FILE__) + '/config/database.yml') unless ENV['CLOUDANT_URL']
     set :db, CouchRest.database!("#{ENV['CLOUDANT_URL'] || "http://#{settings.conf['username']}:#{settings.conf['password']}@localhost:5984"}/recall")
   end
 
