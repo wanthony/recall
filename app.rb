@@ -9,7 +9,7 @@ class App < Sinatra::Base
   configure do
     set :app_file, __FILE__
     set :bind, 'localhost'
-    set :port, '4567'
+    set :port, ENV['PORT'] || '4567'
     set :run, true
     set :server, %w[thin mongrel webrick]
     set :conf, YAML.load_file(File.dirname(__FILE__) + '/config/database.yml') unless ENV['CLOUDANT_URL']
