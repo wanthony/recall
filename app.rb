@@ -8,7 +8,7 @@ require 'haml'
 class App < Sinatra::Base
   configure do
     set :app_file, __FILE__
-    set :bind, 'localhost'
+    set :bind, '0.0.0.0'
     set :port, ENV['PORT'] || '4567'
     set :run, true
     set :server, %w[thin mongrel webrick]
