@@ -1,8 +1,6 @@
 source :rubyforge
 
-gem 'sinatra'
+gem 'sinatra', :require => 'sinatra/base'
 gem 'thin'
-gem 'less'
-gem 'coffee-script'
 gem 'haml'
-gem 'couchrest_model'
+gem 'couchrest'

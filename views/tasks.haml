@@ -1,7 +1,5 @@
-.row
-  .span1.column
-    %input{:type => 'checkbox', :name => 'exampleTask', :checked => false}
+.page-header
+  %h1 Tasks
 
-  .span15.columns
-    Some task that I have to do.
-
+  - @tasks.each do |task|
+    %p= task['value']['task']
